@@ -1,6 +1,4 @@
 import Message from "../models/Message.js";
-console.log("Message model on startup:", Message);
-
 import User from "../models/User.js";
 import cloudinary from "../lib/cloudinary.js";
 import { io, userSocketMap } from "../server.js";
