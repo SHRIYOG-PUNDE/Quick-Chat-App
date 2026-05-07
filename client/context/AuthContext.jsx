@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { createContext, useState, useEffect } from "react";
 import axios from 'axios'
 import toast from "react-hot-toast";
@@ -61,7 +62,10 @@ const logout = async()=>{
     setOnlineUser([]);
     axios.defaults.headers.common["token"] = null;
     toast.success("Logged Out Successfully");
-    socket.disconnect();
+    if (socketRef.current) {
+    socketRef.current.disconnect();
+    socketRef.current = null;
+}
 }
 
 
@@ -80,23 +84,24 @@ const updateProfile = async(body)=>{
 
 
 
+const socketRef = useRef(null);
 
-    // connect socket function to handle socket connection and online users updates
-    const connectSocket = (userData)=>{
-        if(!userData || socket?.connected) return;
-        const newSocket = io(backendUrl, {
-            query:{
-                userId:userData._id,
+const connectSocket = (userData) => {
+    if (!userData || socketRef.current) return;
 
-            }
-        });
-        newSocket.connect();
-        setSocket(newSocket);
+    const newSocket = io(backendUrl, {
+        query: { userId: userData._id },
+        transports: ["websocket"]
+    });
 
-        newSocket.on('getOnlineUsers', (userIds)=>{
-            setOnlineUser(userIds);
-        })
-    }
+    socketRef.current = newSocket;
+    setSocket(newSocket);
+
+    newSocket.on("getOnlineUsers", (userIds) => {
+        setOnlineUser(userIds);
+    });
+    console.log("Connecting socket to:", backendUrl);
+};
 
     useEffect(() => {
       if(token){
