@@ -49,10 +49,10 @@ app.use('/api/messages', messageRouter)
 // Connedt to MongoBD
 await connectDB();
 
-if(process.env.NODE_ENV !== 'production'){
+// if(process.env.NODE_ENV !== 'production'){ this commented if was for vercel
     const PORT = process.env.PORT || 5000
     server.listen(PORT, ()=> console.log("Server is running on PORT: "+PORT));
-}
+// }
 
 // Export server for the vercel
 export default server;
