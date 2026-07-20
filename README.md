@@ -51,11 +51,9 @@
 
 # 📸 Preview
 
-> **Replace these images after taking screenshots**
-
 <p align="center">
 
-<img src="assets/dashboard.png" width="90%"/>
+<img src="assets/chatWindow.png" width="90%"/>
 
 </p>
 
@@ -609,15 +607,10 @@ login.png
 
 register.png
 
-dashboard.png
-
-chat-window.png
+chatWindow.png
 
 profile.png
 
-settings.png
-
-mobile.png
 
 ```
 
@@ -643,21 +636,11 @@ mobile.png
 
 ---
 
-## Chat Dashboard
-
-<p align="center">
-
-<img src="assets/dashboard.png" width="90%">
-
-</p>
-
----
-
 ## Chat Window
 
 <p align="center">
 
-<img src="assets/chat-window.png" width="90%">
+<img src="assets/chatWindow.png" width="90%">
 
 </p>
 
@@ -668,16 +651,6 @@ mobile.png
 <p align="center">
 
 <img src="assets/profile.png" width="90%">
-
-</p>
-
----
-
-## Mobile View
-
-<p align="center">
-
-<img src="assets/mobile.png" width="30%">
 
 </p>
 
